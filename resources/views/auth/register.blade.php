@@ -8,7 +8,7 @@
   <title>Star Admin2 </title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="{{ asset("backend/vendors/feather/feather.css") }}">
-  <link rel="stylesheet" href="{{ asset("backend/vendors/mdi/css/materialdesignicons.min.css") }}">
+  <link rel="stylesheet" href="{{  asset("backend/vendors/mdi/css/materialdesignicons.min.css") }}">
   <link rel="stylesheet" href="{{ asset("backend/vendors/ti-icons/css/themify-icons.css") }}">
   <link rel="stylesheet" href="{{ asset("backend/vendors/typicons/typicons.css") }}">
   <link rel="stylesheet" href="{{ asset("backend/vendors/simple-line-icons/css/simple-line-icons.css") }}">
