@@ -31,6 +31,7 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
+
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
@@ -51,10 +52,9 @@ class RegisteredUserController extends Controller
 
         if($user->role_id == RoleEnum::CLIENT){
             return redirect()->back();
-        }
-
-        if($user->role_id == RoleEnum::PRESTATAIRE){
-            return redirect();
+        } elseif ($user->role_id == RoleEnum::PRESTATAIRE){
+                dd($user->role_id);
+            return redirect()->route('restaurant.index');
         }
     }
 }
