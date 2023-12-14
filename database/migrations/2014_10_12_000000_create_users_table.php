@@ -20,15 +20,15 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
-            $table->boolean("role_id")->default(false);
+            $table->integer("role_id")->default(0);
             $table->timestamps();
         });
 
         User::create([
-            "name" => "Diana consuting",
-            "email" => "diana@gmail.com",
-            "password" => Hash::make("diana consulting"),
-            "role_id" => true,
+            "name" => "Kisenga jocelin",
+            "email" => "kisengajocelin7@gmail.com",
+            "password" => Hash::make("construire le monde"),
+            "role_id" => 1,
         ]);
     }
 
