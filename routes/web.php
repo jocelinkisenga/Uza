@@ -28,7 +28,8 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware(["auth","resto"])->prefix("resto")->group(function(){
     Route::get("/dashboard",[RestaurantController::class,'index'])->name("restaurant.index");
-    
+    Route::get("/restaurant",[RestaurantController::class,'create'])->name("restaurant.create");
+    Route::post("/restaurant",[RestaurantController::class,'store'])->name("restaurant.store");
 });
 
 require __DIR__.'/auth.php';

@@ -50,11 +50,11 @@
                     </div>
                     <div>
                         <a class="navbar-brand brand-logo" href="index.html">
-                            <img src="images/logo.svg" alt="logo" />
+                            <img src="{{ asset("frontend/images/logo.svg") }}" alt="logo" />
                         </a>
                         <a
                             class="navbar-brand brand-logo-mini"
-                            href="index.html"
+                            href="{{ route("home") }}"
                         >
                             <img src="images/logo-mini.svg" alt="logo" />
                         </a>
@@ -67,10 +67,10 @@
                         >
                             <h1 class="welcome-text">
                                 Good Morning,
-                                <span class="text-black fw-bold">John Doe</span>
+                                <span class="text-black fw-bold">{{ Auth::user()->name }}</span>
                             </h1>
                             <h3 class="welcome-sub-text">
-                                Your performance summary this week
+                                Votre perfomance de la semaine
                             </h3>
                         </li>
                     </ul>
@@ -439,7 +439,7 @@
                     <div id="settings-trigger"><i class="ti-settings"></i></div>
                     <div id="theme-settings" class="settings-panel">
                         <i class="settings-close ti-close"></i>
-                        <p class="settings-heading">SIDEBAR SKINS</p>
+                        <p class="settings-heading">Configuration</p>
                         <div
                             class="sidebar-bg-options selected"
                             id="sidebar-light-theme"
@@ -749,51 +749,13 @@
                 <nav class="sidebar sidebar-offcanvas" id="sidebar">
                     <ul class="nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="index.html">
+                            <a class="nav-link" href="{{ route("restaurant.index") }}">
                                 <i class="mdi mdi-grid-large menu-icon"></i>
                                 <span class="menu-title">Dashboard</span>
                             </a>
                         </li>
-                        <li class="nav-item nav-category">UI Elements</li>
-                        <li class="nav-item">
-                            <a
-                                class="nav-link"
-                                data-bs-toggle="collapse"
-                                href="#ui-basic"
-                                aria-expanded="false"
-                                aria-controls="ui-basic"
-                            >
-                                <i class="menu-icon mdi mdi-floor-plan"></i>
-                                <span class="menu-title">UI Elements</span>
-                                <i class="menu-arrow"></i>
-                            </a>
-                            <div class="collapse" id="ui-basic">
-                                <ul class="nav flex-column sub-menu">
-                                    <li class="nav-item">
-                                        <a
-                                            class="nav-link"
-                                            href="pages/ui-features/buttons.html"
-                                            >Buttons</a
-                                        >
-                                    </li>
-                                    <li class="nav-item">
-                                        <a
-                                            class="nav-link"
-                                            href="pages/ui-features/dropdowns.html"
-                                            >Dropdowns</a
-                                        >
-                                    </li>
-                                    <li class="nav-item">
-                                        <a
-                                            class="nav-link"
-                                            href="pages/ui-features/typography.html"
-                                            >Typography</a
-                                        >
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="nav-item nav-category">Forms and Datas</li>
+
+
                         <li class="nav-item">
                             <a
                                 class="nav-link"
@@ -805,7 +767,7 @@
                                 <i
                                     class="menu-icon mdi mdi-card-text-outline"
                                 ></i>
-                                <span class="menu-title">Form elements</span>
+                                <span class="menu-title">Restaurants</span>
                                 <i class="menu-arrow"></i>
                             </a>
                             <div class="collapse" id="form-elements">
@@ -813,123 +775,15 @@
                                     <li class="nav-item">
                                         <a
                                             class="nav-link"
-                                            href="pages/forms/basic_elements.html"
-                                            >Basic Elements</a
+                                            href="{{ route("restaurant.create") }}"
+                                            >Ajouter un restaurant</a
                                         >
                                     </li>
+
                                 </ul>
                             </div>
                         </li>
-                        <li class="nav-item">
-                            <a
-                                class="nav-link"
-                                data-bs-toggle="collapse"
-                                href="#charts"
-                                aria-expanded="false"
-                                aria-controls="charts"
-                            >
-                                <i class="menu-icon mdi mdi-chart-line"></i>
-                                <span class="menu-title">Charts</span>
-                                <i class="menu-arrow"></i>
-                            </a>
-                            <div class="collapse" id="charts">
-                                <ul class="nav flex-column sub-menu">
-                                    <li class="nav-item">
-                                        <a
-                                            class="nav-link"
-                                            href="pages/charts/chartjs.html"
-                                            >ChartJs</a
-                                        >
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="nav-item">
-                            <a
-                                class="nav-link"
-                                data-bs-toggle="collapse"
-                                href="#tables"
-                                aria-expanded="false"
-                                aria-controls="tables"
-                            >
-                                <i class="menu-icon mdi mdi-table"></i>
-                                <span class="menu-title">Tables</span>
-                                <i class="menu-arrow"></i>
-                            </a>
-                            <div class="collapse" id="tables">
-                                <ul class="nav flex-column sub-menu">
-                                    <li class="nav-item">
-                                        <a
-                                            class="nav-link"
-                                            href="pages/tables/basic-table.html"
-                                            >Basic table</a
-                                        >
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="nav-item">
-                            <a
-                                class="nav-link"
-                                data-bs-toggle="collapse"
-                                href="#icons"
-                                aria-expanded="false"
-                                aria-controls="icons"
-                            >
-                                <i class="menu-icon mdi mdi-layers-outline"></i>
-                                <span class="menu-title">Icons</span>
-                                <i class="menu-arrow"></i>
-                            </a>
-                            <div class="collapse" id="icons">
-                                <ul class="nav flex-column sub-menu">
-                                    <li class="nav-item">
-                                        <a
-                                            class="nav-link"
-                                            href="pages/icons/mdi.html"
-                                            >Mdi icons</a
-                                        >
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="nav-item nav-category">pages</li>
-                        <li class="nav-item">
-                            <a
-                                class="nav-link"
-                                data-bs-toggle="collapse"
-                                href="#auth"
-                                aria-expanded="false"
-                                aria-controls="auth"
-                            >
-                                <i
-                                    class="menu-icon mdi mdi-account-circle-outline"
-                                ></i>
-                                <span class="menu-title">User Pages</span>
-                                <i class="menu-arrow"></i>
-                            </a>
-                            <div class="collapse" id="auth">
-                                <ul class="nav flex-column sub-menu">
-                                    <li class="nav-item">
-                                        <a
-                                            class="nav-link"
-                                            href="pages/samples/login.html"
-                                        >
-                                            Login
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="nav-item nav-category">help</li>
-                        <li class="nav-item">
-                            <a
-                                class="nav-link"
-                                href="http://bootstrapdash.com/demo/star-admin2-free/docs/documentation.html"
-                            >
-                                <i class="menu-icon mdi mdi-file-document"></i>
-                                <span class="menu-title">Documentation</span>
-                            </a>
-                        </li>
+
                     </ul>
                 </nav>
                 <div class="main-panel">
