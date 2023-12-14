@@ -8,7 +8,7 @@
           <div class="card-body">
             <h4 class="card-title">Ajouter un restaurant</h4>
 
-            <form class="forms-sample" method="POST" action="{{ route("restaurant.store") }}">
+            <form class="forms-sample" method="POST" action="{{ route("restaurant.store") }}" enctype="multipart/form-data">
                 @csrf
               <div class="form-group">
                 <label for="exampleInputUsername1">nom</label>
@@ -20,7 +20,7 @@
             </div>
               <div class="form-group">
                 <label for="exampleInputPassword1">image</label>
-                <input type="file" name="logo_path" class="form-control" id="exampleInputPassword1">
+                <input type="file" name="logo_path" class="form-control" >
               </div>
               <button type="submit" class="btn btn-primary me-2">Ajouter</button>
               <button class="btn btn-light">Annuler</button>
