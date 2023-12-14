@@ -32,11 +32,11 @@ class RegisteredUserController extends Controller
     public function store(Request $request): RedirectResponse
     {
 
-        $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
-        ]);
+        // $request->validate([
+        //     'name' => ['required', 'string', 'max:255'],
+        //     'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
+        //     'password' => ['required', 'confirmed'],
+        // ]);
 
         $user = User::create([
             'name' => $request->name,
@@ -53,7 +53,7 @@ class RegisteredUserController extends Controller
         if($user->role_id == RoleEnum::CLIENT){
             return redirect()->back();
         } elseif ($user->role_id == RoleEnum::PRESTATAIRE){
-                dd($user->role_id);
+                
             return redirect()->route('restaurant.index');
         }
     }
