@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\DashboardController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
@@ -30,6 +31,10 @@ Route::middleware(["auth","resto"])->prefix("resto")->group(function(){
     Route::get("/dashboard",[RestaurantController::class,'index'])->name("restaurant.index");
     Route::get("/restaurant",[RestaurantController::class,'create'])->name("restaurant.create");
     Route::post("/restaurant",[RestaurantController::class,'store'])->name("restaurant.store");
+});
+
+Route::middleware(['auth', 'admin'])->group(function () {
+        Route::get('/admin-dashboard',[DashboardController::class,"index"])->name("admin.index");
 });
 
 require __DIR__.'/auth.php';
