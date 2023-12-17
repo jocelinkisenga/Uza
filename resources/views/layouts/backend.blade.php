@@ -7,7 +7,7 @@
             name="viewport"
             content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
-        <title>Star Admin2</title>
+        <title>dashboard</title>
         <!-- plugins:css -->
 <!-- plugins:css -->
 <link rel="stylesheet" href="{{ asset("backend/vendors/feather/feather.css") }}">
@@ -70,7 +70,7 @@
                                 <span class="text-black fw-bold">{{ Auth::user()->name }}</span>
                             </h1>
                             <h3 class="welcome-sub-text">
-                                Votre perfomance de la semaine
+                                
                             </h3>
                         </li>
                     </ul>
@@ -775,8 +775,8 @@
                                     <li class="nav-item">
                                         <a
                                             class="nav-link"
-                                            href="{{ route("restaurant.create") }}"
-                                            >Ajouter un restaurant</a
+                                            href="{{ route("admin.restaurants")}}"
+                                            >Liste des restaurants</a
                                         >
                                     </li>
 

@@ -19,5 +19,5 @@ class AdminMiddleware
         if(Auth::user()->role_id === 1){
             return $next($request);
         }
-        
+    }
 }

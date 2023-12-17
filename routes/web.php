@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminRestaurantController;
 use App\Http\Controllers\Admin\DashboardController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -34,7 +35,9 @@ Route::middleware(["auth","resto"])->prefix("resto")->group(function(){
 });
 
 Route::middleware(['auth', 'admin'])->group(function () {
-        Route::get('/admin-dashboard',[DashboardController::class,"index"])->name("admin.index");
+        Route::get('/dashboard',[DashboardController::class,"index"])->name("admin.index");
+        Route::get("restaurants",[AdminRestaurantController::class,"index"])->name("admin.restaurants");
+
 });
 
 require __DIR__.'/auth.php';
