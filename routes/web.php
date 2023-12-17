@@ -30,14 +30,17 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware(["auth","resto"])->prefix("resto")->group(function(){
     Route::get("/dashboard",[RestaurantController::class,'index'])->name("restaurant.index");
+    Route::get("/restaurant/{id}", [RestaurantController::class, "show"])->name("restaurant.show");
     Route::get("/restaurant",[RestaurantController::class,'create'])->name("restaurant.create");
     Route::post("/restaurant",[RestaurantController::class,'store'])->name("restaurant.store");
+    Route::post("/détail",[RestaurantController::class,'show'])->name("restaurant.show");
 });
 
 Route::middleware(['auth', 'admin'])->group(function () {
         Route::get('/dashboard',[DashboardController::class,"index"])->name("admin.index");
         Route::get("restaurants",[AdminRestaurantController::class,"index"])->name("admin.restaurants");
-
+        Route::get("/unactivate/{id}",[AdminRestaurantController::class,'unactivate'])->name("admin.restaurants.unactivate");
+        Route::get("/activate/{id}",[AdminRestaurantController::class,'activate'])->name("admin.restaurants.activate");
 });
 
 require __DIR__.'/auth.php';

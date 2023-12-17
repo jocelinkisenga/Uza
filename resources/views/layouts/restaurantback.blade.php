@@ -775,6 +775,13 @@
                                     <li class="nav-item">
                                         <a
                                             class="nav-link"
+                                            href="{{ route("restaurant.show") }}"
+                                            >Mon restaurant</a
+                                        >
+                                    </li>
+                                    <li class="nav-item">
+                                        <a
+                                            class="nav-link"
                                             href="{{ route("restaurant.create") }}"
                                             >Ajouter un restaurant</a
                                         >

@@ -10,7 +10,8 @@ use App\Services\RestaurantService;
 
 class RestaurantController extends Controller
 {
-    public function __construct(public RestaurantService $restaurantService){}
+    protected $restaurantWithMenus;
+    public function __construct(public RestaurantService $service){}
 
     public function index(){
         return view("restaurant.index");
@@ -21,8 +22,13 @@ class RestaurantController extends Controller
     }
 
     public function store(Request $request){
-        $this->restaurantService->store($request);
-
+        $this->service->store($request);
         return redirect()->route("restaurant.index");
+    }
+
+    public function show(){
+        $this->restaurantWithMenus = $this->service->getOndRestaurant();
+
+        return view("restaurant.show", ["restaurant" => $this->restaurantWithMenus]);
     }
 }
