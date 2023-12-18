@@ -1,6 +1,7 @@
 @extends("layouts.restaurantback")
 @section("content")
 <div class="content-wrapper">
+@dd($restaurant)
     <div class="row">
       <div class="col-lg-6 grid-margin stretch-card">
         <div class="card">
